@@ -1,0 +1,6 @@
+{
+    "address":"pusher_log",
+    "eventbus_prefix":"pusher::",
+    "port":8080,
+    "verticleID":1
+}

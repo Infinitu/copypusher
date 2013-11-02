@@ -1,0 +1,58 @@
+apply from: "gradle/vertx.gradle"
+apply plugin: 'scala'
+
+group = 'kr.soma'
+
+repositories {
+	mavenCentral()
+}
+
+scalaVersion = '2.10.2'
+scalaLangModVersion='0.2.0-SNAPSHOT'
+
+dependencies {
+	// Libraries needed to run the scala tools
+	scalaTools "org.scala-lang:scala-compiler:${scalaVersion}",
+	           "org.scala-lang:scala-library:${scalaVersion}"
+
+
+	// Libraries needed for scala api
+	compile "org.scala-lang:scala-library:${scalaVersion}"
+	compile "io.vertx:lang-scala:${scalaLangModVersion}"
+}
+
+def configurePom(def pom) {
+  pom.project {
+    name rootProject.name
+    description 'pusher'
+    inceptionYear '2013'
+    packaging 'jar'
+
+    url 'swmaestro.kr'
+/*
+    developers {
+      developer {
+        id 'developer id (e.g. github username)'
+        name 'developer name'
+        email 'developer email'
+      }
+    }
+
+    scm {
+      url 'url to your repo - e.g. github repo url'
+    }
+
+    licenses {
+      license {
+        name 'The name of the license used, e.g.: The Apache Software License, Version 2.0'
+        url 'URl to the license, e.g.: http://www.apache.org/licenses/LICENSE-2.0.txt'
+        distribution 'repo'
+      }
+    }
+
+    properties {
+      setProperty('project.build.sourceEncoding', 'UTF8')
+    }
+    */
+  }
+}
